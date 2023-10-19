@@ -1,0 +1,122 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <title>网店运营可视化</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/app.css"/>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/china.js"></script>
+    <script src="../static/js/d3.min.js"></script>
+
+</head>
+
+<body class="bg06">
+<header class="header">
+    <div id='current-time'>
+        <script>
+            // Get the current date and time
+            var currentDate = new Date();
+
+            // Get individual components of the date and time
+            var year = currentDate.getFullYear();
+            var month = currentDate.getMonth() + 1; // Months are 0-based
+            var day = currentDate.getDate();
+            var hours = currentDate.getHours();
+            var minutes = currentDate.getMinutes();
+            var seconds = currentDate.getSeconds();
+
+            // Format the date and time as a string
+            var formattedDateTime = year + '-' + addZero(month) + '-' + addZero(day) + ' ' + addZero(hours) + ':' + addZero(minutes) ;
+
+            // Display the formatted date and time in the HTML element
+            document.getElementById('current-time').textContent = '当前时间: ' + formattedDateTime;
+
+            // Function to add leading zeros to single-digit numbers
+            function addZero(number) {
+                return (number < 10 ? '0' : '') + number;
+            }
+        </script>
+    </div>
+    <h3>网店运营销售大屏</h3>
+</header>
+
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row fill-h">
+            <div class="col-lg-3 fill-h">
+                <div class="xpanel-wrapper xpanel-wrapper-1-2">
+                    <div class="xpanel">
+                        <div class="title">1-12月各月销售和利润情况</div>
+                        <div class="left_right_div" id="left1"></div>
+                    </div>
+                </div>
+                <div class="xpanel-wrapper xpanel-wrapper-1-2">
+                    <div class="xpanel">
+                        <div class="title">各产品销售情况</div>
+                        <div class="left_right_div" id="left2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 fill-h">
+                <div class="xpanel-wrapper xpanel-wrapper-1">
+                    <div class="xpanel no-padding no-bg">
+                        <div class="center_title">各省份销售和利润情况</div>
+                        <div class="center_div">
+                            <div class="title1"></div>
+                            <div class="center_div1" id="center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 fill-h">
+                <div class="xpanel-wrapper xpanel-wrapper-2-3">
+                    <div class="xpanel">
+                        <div class="title">各地区销售和利润情况</div>
+                        <div class="left_right_div" id="right1"></div>
+                    </div>
+                </div>
+                <div class="xpanel-wrapper xpanel-wrapper-1-3">
+                    <div class="xpanel">
+                        <div class="title">各产品经理销售和利润情况</div>
+                        <div class="left_right_div" id="right2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Get the current date and time
+    var currentDate = new Date();
+
+    // Get individual components of the date and time
+    var year = currentDate.getFullYear();
+    var month = currentDate.getMonth() + 1; // Months are 0-based
+    var day = currentDate.getDate();
+    var hours = currentDate.getHours();
+    var minutes = currentDate.getMinutes();
+    var seconds = currentDate.getSeconds();
+
+    // Format the date and time as a string
+    var formattedDateTime = year + '-' + addZero(month) + '-' + addZero(day) + ' ' + addZero(hours) + ':' + addZero(minutes);
+
+    // Display the formatted date and time in the HTML element
+    document.getElementById('current-time').textContent = '时间: ' + formattedDateTime;
+
+    // Function to add leading zeros to single-digit numbers
+    function addZero(number) {
+        return (number < 10 ? '0' : '') + number;
+    }
+</script>
+
+<script src='../static/js/sales_month.js'></script>
+<script src='../static/js/manager.js'></script>
+<script src='../static/js/province.js'></script>
+<script src='../static/js/region.js'></script>
+<script src='../static/js/product.js'></script>
+{#<script>#}
+</body>
+</html>
